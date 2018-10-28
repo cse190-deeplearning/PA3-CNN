@@ -145,9 +145,9 @@ def create_split_loaders(batch_size, seed, transform=transforms.ToTensor(),
     Params:
     -------
     - batch_size: (int) mini-batch size to load at a time
+    - seed: (int) Seed for random generator (use for testing/reproducibility)
     - transform: A torchvision.transforms object - transformations to apply to each image
                  (Can be "transforms.Compose([transforms])")
-    - seed: (int) Seed for random generator (use for testing/reproducibility)
     - p_val: (float) Percent (as decimal) of dataset to use for validation
     - p_test: (float) Percent (as decimal) of the dataset to split for testing
     - shuffle: (bool) Indicate whether to shuffle the dataset before splitting
@@ -191,7 +191,10 @@ def create_split_loaders(batch_size, seed, transform=transforms.ToTensor(),
     sample_test = SubsetRandomSampler(test_ind)
     sample_val = SubsetRandomSampler(val_ind)
 
-    if extras is not {}:
+    num_workers = 0
+    pin_memory = False
+    # If CUDA is available
+    if extras:
         num_workers = extras["num_workers"]
         pin_memory = extras["pin_memory"]
         
