@@ -105,7 +105,7 @@ class ChestXrayDataset(Dataset):
         if self.transform is not None:
             image = self.transform(image)
             
-        # If the image is not of type Tensor, convert it
+        # Verify that image is in Tensor format
         if type(image) is not torch.Tensor:
             image = transform.ToTensor(image)
 
