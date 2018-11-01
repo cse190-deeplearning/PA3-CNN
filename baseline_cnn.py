@@ -108,8 +108,8 @@ class BasicCNN(nn.Module):
         batch = func.relu(self.conv1_normed(self.conv1(batch)))
         
         # Apply conv2 and conv3 similarly
-        batch = _______ #func.relu(self.conv2_normed(self.conv2(batch)))
-        batch = _______ #func.relu(self.conv3_normed(self.conv3(batch)))
+        batch = _______ 
+        batch = _______ 
         
         # Pass the output of conv3 to the pooling layer
         batch = self.pool(batch)
@@ -118,15 +118,15 @@ class BasicCNN(nn.Module):
         batch = batch.view(-1, self.num_flat_features(batch))
         
         # Connect the reshaped features of the pooled conv3 to fc1
-        batch = _______ #func.relu(self.fc1(batch))
+        batch = _______ 
         
         # Connect fc1 to fc2 - this layer is slightly different than the rest (why?)
-        batch = _______ # self.fc2(batch)
+        batch = _______ 
 
 
         # Return the class predictions
         #TODO: apply an activition function to 'batch'
-        return _______ # func.sigmoid(batch)
+        return _______ 
     
     
 
