@@ -37,7 +37,7 @@ import os
 class BasicCNN(nn.Module):
     """ A basic convolutional neural network model for baseline comparison. 
     
-    Consists of three Conv2d layers, followed by one 4x4 max-pooling layer, 
+    Consists of three Conv2d layers, followed by one 3x3 max-pooling layer, 
     and 2 fully-connected (FC) layers:
     
     conv1 -> conv2 -> conv3 -> maxpool -> fc1 -> fc2 (outputs)
